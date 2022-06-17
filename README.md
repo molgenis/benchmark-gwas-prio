@@ -1,1 +1,1 @@
-# benchmark-gwas-prio
+# Benchmarking GWAS prioritization methods
