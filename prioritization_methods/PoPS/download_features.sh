@@ -5,11 +5,6 @@ A bash script to download and manipulate features needed to run PoPs.
 Author - Stijn Arends
 Date - 15-6-2022
 contact - s.arends@st.hanze.nl
-
-
-To-do list:
-    * unzip all the files before running the python script
-    * Change the python script in such a way that it can only read in txt files no gz files.
 '
 
 repo=https://github.com/FinucaneLab/gene_features.git
@@ -48,6 +43,8 @@ do
     cd ..
     rm -r ${dir##*/}
 done
+
+gunzip -f *.gz
 
 cd ../../
 
