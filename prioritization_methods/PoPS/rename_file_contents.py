@@ -39,15 +39,10 @@ class EditFeatureFiles:
 
         self.rename_file(old_file, new_file)
 
-        gz = True
-        if new_file.suffix != ".gz":
-            gz = False
-            # test1 = test1.with_suffix(".gz")
-
-        df = self.read_data(new_file, gz)
+        df = self.read_data(new_file)
         df = self.rename_col_names(df, new_name)
 
-        self.write_data(df, new_file, gz)
+        self.write_data(df, new_file)
 
     @staticmethod
     def rename_file(old:Path, new:Path) -> None:
@@ -63,7 +58,7 @@ class EditFeatureFiles:
         """
         os.rename(old, new)
 
-    def read_data(self, file:Path, gz:bool) -> pd.DataFrame:
+    def read_data(self, file:Path) -> pd.DataFrame:
         """
         Read in the feature data as either a gz file or normal txt file.
 
@@ -79,10 +74,7 @@ class EditFeatureFiles:
         df - pd.DataFrame
             data in a pandas data frame
         """
-        if gz:
-            df = pd.read_csv(file, sep="\t", header=0, compression='gzip')
-        else:
-            df = pd.read_csv(file, sep="\t", header=0)
+        df = pd.read_csv(file, sep="\t", header=0)
         return df
 
     def rename_col_names(self, df: pd.DataFrame, name:Path) -> pd.DataFrame:
@@ -110,7 +102,7 @@ class EditFeatureFiles:
         df.columns.values[1:] = new_cols
         return df
 
-    def write_data(self, df:pd.DataFrame, file_name: Path, gz: bool) -> None:
+    def write_data(self, df:pd.DataFrame, file_name: Path) -> None:
         """
         Overwrite the old data with the new data.
 
@@ -123,10 +115,7 @@ class EditFeatureFiles:
         gz -bool
             If the file is gziped or not
         """
-        if gz:
-            df.to_csv(file_name, sep="\t", index=False, mode="w+", compression="gzip")
-        else:
-            df.to_csv(file_name, sep="\t", index=False, mode="w+")
+        df.to_csv(file_name, sep="\t", index=False, mode="w+")
 
 
 class ArgumentParser:
@@ -222,7 +211,6 @@ def main():
     # Validate passed arguments
     cla_validator = CommandLineArgumentsValidator()
     cla_validator.validate_input_path(folder)
-    # folder = 'gene_features/test/'
 
     edit_files = EditFeatureFiles(folder=folder, prefix=prefix)
 

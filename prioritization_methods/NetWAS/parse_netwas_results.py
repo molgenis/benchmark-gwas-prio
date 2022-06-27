@@ -4,13 +4,11 @@
 Module for parsing the results produced by NetWAS.
 """
 
-# from itertools import tee
 import sys
 import argparse
 from typing import Any
 from pathlib import Path
 import os
-# from xmlrpc.client import Boolean
 import pandas as pd
 
 
