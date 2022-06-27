@@ -1,0 +1,24 @@
+name: benchmark-gwas-prio
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.8
+  - networkx
+  - numpy
+  - pandas
+  - jupyter
+  - matplotlib
+  - hydra-core
+  - black
+  - pylint
+  - scipy
+  - nltk
+  - pytest
+  - tox
+  - pytest-cov
+  - codecov
+  - seaborn
+  - matplotlib-venn
+  - openpyxl
+  - plotly
