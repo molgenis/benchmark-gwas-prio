@@ -7,21 +7,30 @@
 
 ## Installation
 * * *
+This project requires both R and python dependencies.
 
-### Single install
-The easiest way to install all the required packages is via conda. How to install conda on your system can be found [here](https://docs.anaconda.com/anaconda/install/index.html).
+### Python
+
+#### Single install
+The easiest way to install all the required packages is via conda or pip. How to install conda on your system can be found [here](https://docs.anaconda.com/anaconda/install/index.html).
 
 To create a new environment which contains all the required packages plus the right version run the following code:
 
 ```bash
-  conda env create -f environment.yml
+  conda env create -f install/environment.yml
 ```
 
 This will create a new environment named `benchmark-gwas-prio` which can be used to run this repository.
 
-> NOTE: the environment.yml is located in the install/ directory [here](install/environment.yml).
+or:
 
-### Multiple installs
+```bash
+  pip install -r install/requirements.txt
+```
+
+> NOTE: the environment.yml and requirements.txt are located in the install/ directory [here](install/).
+
+#### Multiple installs
 An other option is to install each package seperately, either with conda or pip.
 
 conda:
@@ -34,7 +43,18 @@ pip
   pip install <PACKAGE>==<VERSION>
 ```
 
-> NOTE: make sure to use the correct versions, which are listed [here](#packages).
+> NOTE: make sure to use the correct versions, which are listed [here](#python-packages).
+
+### R
+
+To install packages in R use the following code:
+
+```R
+install.packages('<PACKAGE>')
+```
+
+> NOTE: all R dependencies are listed [here](#r-packages)
+
 
 ## Getting started
 * * *
@@ -43,12 +63,14 @@ pip
 
 ## Requirements
 * * *
-| Software                          | Version  |
-| --------------------------------- | :------: |
-| [Python](https://www.python.org/) | `3.9.7`  |    
+| Software                                     | Version  |
+| -------------------------------------------- | :------: |
+| [Python](https://www.python.org/)            | `3.9.7`  | 
+| [R](https://www.r-project.org/)              | `4.1.2`  |
+| [Bash](https://www.gnu.org/software/bash/)   | `5.1.4`  |
 
 
-## Packages
+## Python Packages
 * * *
 | Package                                              | Version  |
 | ---------------------------------------------------- | :------: |
@@ -64,6 +86,13 @@ pip
 | [pathlib](https://pathlib.readthedocs.io/en/pep428/) | `1.0.1`  |
 | [yaml](https://pyyaml.org/)                          | `5.4.1`  |
 | [colorcet](https://colorcet.holoviz.org/)            | `2.0.6 ` |
+
+# R Packages
+* * *
+| Package                                               | Version  |
+| ----------------------------------------------------- | :------: |
+| [biomaRt](http://www.biomart.org/)                    | `4.1.2`  |
+| [dplyr](https://dplyr.tidyverse.org/)                 | `4.1.2`  |
 
 
 ## Authors
