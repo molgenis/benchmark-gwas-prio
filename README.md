@@ -38,7 +38,7 @@ pip
 
 ## Getting started
 * * *
-To open the dashboard run the [dashboard_mosquitoes.ipynb](Dashboard/dashboard_mosquitoes.ipynb) notebook from top to bottom.
+
 
 
 ## Requirements
@@ -68,6 +68,12 @@ To open the dashboard run the [dashboard_mosquitoes.ipynb](Dashboard/dashboard_m
 
 ## Authors
 * * *
+| Name                                                        | Role           | Institute             |
+| ------------------------------------------------------------| :------------: | :-------------------: |
+| [Raana Roohanitaziani](mailto:r.roohanitaziani@st.hanze.nl) | Project member | Hanze University DSLS |
+| [Pieter de Jong](mailto:p.w.j.de.jong@st.hanze.nl)          | Project member | Hanze University DSLS |
+| [Michael Cen Feng](mailto:m.cen.feng@st.hanze.nl)           | Project member | Hanze University DSLS |
+| [Stijn Arends](mailto:s.arends@st.hanze.nl)                 | Project member | Hanze University DSLS |
 
 
 ## Acknowledgements
