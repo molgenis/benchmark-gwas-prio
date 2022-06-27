@@ -1,0 +1,352 @@
+---
+title: "Untitled"
+output: html_document
+---
+
+```{r}
+library('biomaRt')
+library(dplyr)
+```
+
+# Parse the full NetWas data
+
+
+## Height
+
+```{r}
+# Parse full NetWas data set
+
+#create data frame with 5 empty vectors
+# res <- data.frame(gene_symbol=character(),
+#                   ensemble_id=character(),
+#                   netwas_score=numeric(),
+#                   stringsAsFactors=FALSE)
+
+netwas_full <- "height\\full_result_height_netwas.txt"
+net_full_height <- read.csv(netwas_full, sep="\t", header = FALSE, col.names=c("gene_symbol", "training_label", "netwas_score"))
+net_full_height
+```
+```{r}
+length(unique(net_full_height$gene_symbol))
+```
+```{r}
+# IDs <- c()
+# 
+# 
+# for (row in 1:nrow(net_full_height)) {
+#     symbol <- net_full_height[row, "gene_symbol"]
+#     df_mod <- filter(annotLookup, grepl(symbol, hgnc_symbol))
+#     ensembl_id <- df_mod[df_mod$hgnc_symbol == symbol,'ensembl_gene_id']
+#     # print(symbol)
+#     # print(ensembl_id)
+#     
+#     # Works
+#     if (length(ensembl_id) != 0){
+#       if (length(ensembl_id) > 1){
+#         res[nrow(res) + 1, ] <- c(symbol, ensembl_id[1], net_full_height[row, "netwas_score"])
+#       } else if (length(ensembl_id) == 1){
+#         res[nrow(res) + 1, ] <- c(symbol, ensembl_id, net_full_height[row, "netwas_score"])
+#       }
+#         
+#     }
+# }
+```
+
+
+
+
+```{r}
+   # for-loop over rows 
+gene_symbols_to_ensembl <- function(netwas_data){
+  
+  mart <- useMart('ENSEMBL_MART_ENSEMBL')
+  mart <- useDataset('hsapiens_gene_ensembl', mart)
+  annotLookup <- getBM(
+      mart = mart,
+      attributes = c(
+        'hgnc_symbol',
+        'ensembl_gene_id',
+        'gene_biotype'),
+      uniqueRows = TRUE)
+  
+  # Define the result dataframe
+  res <- data.frame(gene_symbol=character(),
+              ensemble_id=character(),
+              netwas_score=numeric(),
+              stringsAsFactors=FALSE)
+  
+  for (row in 1:nrow(netwas_data)) {
+      symbol <- netwas_data[row, "gene_symbol"]
+      df_mod <- filter(annotLookup, grepl(symbol, hgnc_symbol))
+      ensembl_id <- df_mod[df_mod$hgnc_symbol == symbol,'ensembl_gene_id']
+      
+      # Works
+      if (length(ensembl_id) != 0){
+        if (length(ensembl_id) > 1){
+          res[nrow(res) + 1, ] <- c(symbol, ensembl_id[1], netwas_data[row, "netwas_score"])
+        } else if (length(ensembl_id) == 1){
+          res[nrow(res) + 1, ] <- c(symbol, ensembl_id, netwas_data[row, "netwas_score"])}
+      }
+  }
+  return(res)
+}
+```
+
+```{r}
+
+res <- gene_symbols_to_ensembl(netwas_data = net_full_height)
+
+res
+```
+
+
+```{r}
+length(unique(res$ensemble_id))
+```
+
+
+```{r}
+write.csv(res, "height_netwas_ensembl.csv", row.names = FALSE)
+```
+
+## IBD
+
+```{r}
+# Parse full NetWas data set
+
+netwas_full_ibd <- "IBD\\filtered_netwas_IBD_intestine.txt"
+net_full_ibd <- read.csv(netwas_full_ibd, sep="\t", header = FALSE, col.names=c("gene_symbol", "training_label", "netwas_score"))
+net_full_ibd
+```
+
+```{r}
+res_ibd <- gene_symbols_to_ensembl(netwas_data = net_full_ibd)
+
+res_ibd
+```
+
+
+```{r}
+length(unique(res_ibd$ensemble_id))
+```
+
+
+```{r}
+write.csv(res_ibd, "IBD\\ibd_netwas_ensembl.csv", row.names = FALSE)
+```
+
+## Prostate
+```{r}
+# Parse full NetWas data set
+
+netwas_full_prostate <- "prostate\\filtered_netwas_prostate_prostate_gland.txt"
+net_full_prostate <- read.csv(netwas_full_prostate, sep="\t", header = FALSE, col.names=c("gene_symbol", "training_label", "netwas_score"))
+net_full_prostate
+```
+
+```{r}
+res_prostate <- gene_symbols_to_ensembl(netwas_data = net_full_prostate)
+
+res_prostate
+```
+
+
+```{r}
+length(unique(res_prostate$ensemble_id))
+```
+
+
+```{r}
+write.csv(res_prostate, "prostate\\prostate_netwas_ensembl.csv", row.names = FALSE)
+```
+
+
+# -------------------------
+
+# Parse data using p-value 0.001 for NetWas
+
+## Height
+
+
+```{r}
+netwas_height <- "small_p_value\\height\\height_netwas_skelatal_filtered.txt"
+net_height <- read.csv(netwas_height, sep="\t", header = FALSE, col.names=c("gene_symbol", "training_label", "netwas_score"))
+net_height
+```
+
+
+```{r}
+res_height_small <- gene_symbols_to_ensembl(netwas_data = net_height)
+
+res_height_small
+```
+
+```{r}
+write.csv(res_height_small, "small_p_value\\height\\height_small_netwas_ensembl.csv", row.names = FALSE)
+```
+
+## IBD
+
+```{r}
+netwas_full_ibd <- "small_p_value\\IBD\\netwas_ibd_intestine_filtered.txt"
+net_full_ibd <- read.csv(netwas_full_ibd, sep="\t", header = FALSE, col.names=c("gene_symbol", "training_label", "netwas_score"))
+net_full_ibd
+```
+
+```{r}
+res_ibd <- gene_symbols_to_ensembl(netwas_data = net_full_ibd)
+
+res_ibd
+```
+```{r}
+write.csv(res_ibd, "small_p_value\\IBD\\ibd_small_netwas_ensembl.csv", row.names = FALSE)
+```
+
+## Prostate
+
+```{r}
+netwas_prostate <- "small_p_value\\prostate\\prstcan_netwas_small_filtered.txt"
+net_prostate <- read.csv(netwas_prostate, sep="\t", header = FALSE, col.names=c("gene_symbol", "training_label", "netwas_score"))
+net_prostate
+```
+
+```{r}
+res_prst <- gene_symbols_to_ensembl(netwas_data = net_prostate)
+
+res_prst
+```
+
+```{r}
+write.csv(res_prst, "small_p_value\\prostate\\prst_small_netwas_ensembl.csv", row.names = FALSE)
+```
+
+# --------------------
+
+
+# -----------------------------------------------------
+
+# Parse onlly a list of gene symbols
+
+```{r}
+test_file <- "top_genes\\prioritized_gene_list_height.txt"
+gene_symbols <- read.table(test_file, col.names = c("gene_symbol"))
+```
+
+```{r}
+nrow(gene_symbols)
+```
+
+# Function to get ensembl ID from gene symbols
+
+```{r}
+# discussion what you can use: https://bioinformatics.stackexchange.com/questions/5229/converting-gene-symbol-to-ensembl-id-in-r
+gene_symbols_to_ensembl <- function(gene_symbols){
+  mart <- useMart('ENSEMBL_MART_ENSEMBL', host = 'https://useast.ensembl.org')
+  mart <- useDataset('hsapiens_gene_ensembl', mart)
+  annotLookup <- getBM(
+      mart = mart,
+      attributes = c(
+        'hgnc_symbol',
+        'ensembl_gene_id',
+        'gene_biotype'),
+      uniqueRows = TRUE)
+  IDs <- c()
+  
+  for (symbol in gene_symbols$gene_symbol){
+    df_mod <- filter(annotLookup, grepl(symbol, hgnc_symbol))
+    ensembl_id <- df_mod[df_mod$hgnc_symbol == symbol,'ensembl_gene_id']
+    IDs <- c(IDs, ensembl_id)
+  }
+  
+  return(IDs)
+}
+```
+
+```{r}
+ensembl_ids <- gene_symbols_to_ensembl(gene_symbols = gene_symbols)
+# ensembl_ids
+```
+
+```{r}
+writeLines(ensembl_ids, "ensembl_ids_height.txt")
+```
+
+
+# Test code
+
+```{r}
+# Code found here: https://www.biostars.org/p/430015/
+mart <- useMart('ENSEMBL_MART_ENSEMBL')
+mart <- useDataset('hsapiens_gene_ensembl', mart)
+```
+
+```{r}
+annotLookup <- getBM(
+  mart = mart,
+  attributes = c(
+    'hgnc_symbol',
+    'ensembl_gene_id',
+    'gene_biotype'),
+  uniqueRows = TRUE)
+```
+
+```{r}
+head(annotLookup)
+```
+
+```{r}
+str(annotLookup)
+```
+
+```{r}
+# Get all the ensemble gene id from the gene symbol of NEtWas output
+
+# code from: https://www.geeksforgeeks.org/filtering-row-which-contains-a-certain-string-using-dplyr-in-r/
+annotLookup %>% filter(grepl('PSMD14', hgnc_symbol))
+```
+
+```{r}
+filter(annotLookup, grepl('BAG5', hgnc_symbol))
+```
+
+```{r}
+df_mod <- filter(annotLookup, grepl('BAG5', hgnc_symbol))
+print(df_mod)
+```
+
+```{r}
+# df[df$var1 == 'value', ]
+df_mod[df_mod$hgnc_symbol == 'BAG5','ensembl_gene_id']
+```
+
+```{r}
+gene_symbols <- read.table(test_file, col.names = c("gene_symbol"))
+
+compare_size <- c()
+
+rv1 <- c()
+for (symbol in gene_symbols$gene_symbol){
+    df_mod <- filter(annotLookup, grepl(symbol, hgnc_symbol))
+    ensembl_id <- df_mod[df_mod$hgnc_symbol == symbol,'ensembl_gene_id']
+    if (length(ensembl_id) > 1){
+      # print(ensembl_id)
+      compare_size <- c(compare_size, ensembl_id)
+    }
+    rv1 <- c(rv1, ensembl_id)
+}
+
+
+```
+
+
+
+
+```{r}
+print(length(rv1))
+print(length(compare_size))
+```
+
+```{r}
+str(compare_size)
+```
+
