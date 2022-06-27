@@ -1,10 +1,16 @@
-from itertools import tee
+#!/usr/bin/env python
+
+"""
+Module for parsing the results produced by NetWAS.
+"""
+
+# from itertools import tee
 import sys
 import argparse
 from typing import Any
 from pathlib import Path
 import os
-from xmlrpc.client import Boolean
+# from xmlrpc.client import Boolean
 import pandas as pd
 
 
@@ -14,12 +20,17 @@ __date__ = "20-5-2022"
 
 
 class NetWasParser:
+    """
+    A class to parse the results produced by NetWAS.
+
+    link: https://hb.flatironinstitute.org/netwas
+    """
 
     def __init__(self, file: Path, output_file: Path) -> None:
         self.file = file
         self.output_file = output_file
 
-    def parse_data(self, threshold: float, gene_list: Boolean) -> None:
+    def parse_data(self, threshold: float, gene_list: bool) -> None:
         """
         Parse a NetWas file to extract only the nominal positive genes.
         
@@ -100,7 +111,7 @@ class NetWasParser:
         try:
             dir.parent.mkdir(parents=True, exist_ok=False)
         except FileExistsError:
-            print(f"[{self.make_data_dir.__name__}] {dir} already exists - skipping this step.")
+            pass
 
     
 class ArgumentParser:
@@ -221,14 +232,9 @@ def main():
     file = arg_parser.get_argument('file')
     threshold = arg_parser.get_argument('threshold')
 
-    print(f"Threshold: {threshold}")
-
     output_file = Path(arg_parser.get_argument('output'))
     gene_list = arg_parser.get_argument("gene_list")
     arg_validator.validate_input_file(file)
-
-    print(f"\nInput file: {file}")
-    print(f"\nProduce gene list: {gene_list}")
 
     net_was = NetWasParser(file=file, output_file=output_file)
 
