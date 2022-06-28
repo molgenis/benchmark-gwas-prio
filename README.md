@@ -1,8 +1,16 @@
-# Benchmarking GWAS prioritization methods
+[![Contributors][contributors-shield]][contributors-url]
+[![MIT License][license-shield]][license-url]
+
+<div align="center">
+<h2 align="center">Benchmarking GWAS prioritization methods</h3>
+  <a href="https://github.com/othneildrew/Best-README-Template">
+    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  </a>
+</div>
 
 
 * * *
-## Description
+## About this project
 
 
 * * *
@@ -10,9 +18,10 @@
 
 This project requires both R and python dependencies.
 
-### Python
-
-#### Single install
+<details>
+  <summary>Installing python packages</summary>
+  
+  #### Single install
 The easiest way to install all the required packages is via conda or pip. How to install conda on your system can be found [here](https://docs.anaconda.com/anaconda/install/index.html).
 
 To create a new environment which contains all the required packages plus the right version run the following code:
@@ -45,16 +54,20 @@ pip
 ```
 
 > NOTE: make sure to use the correct versions, which are listed [here](#python-packages).
+  
+</details>
 
-### R
+<details>
+  <summary>Installing R dependencies</summary>
 
-To install packages in R use the following code:
+  To install packages in R use the following code:
 
-```R
-install.packages('<PACKAGE>')
-```
+  ```R
+  install.packages('<PACKAGE>')
+  ```
 
-> NOTE: all R dependencies are listed [here](#r-packages)
+  > NOTE: all R dependencies are listed [here](#r-packages)
+  </details>
 
 * * *
 ## Getting started
@@ -114,3 +127,11 @@ install.packages('<PACKAGE>')
 ## License
 
 This project contains a MIT [license](./LICENSE.md)
+
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[contributors-shield]: https://img.shields.io/github/contributors/molgenis/benchmark-gwas-prio.svg?style=for-the-badge
+[contributors-url]: https://github.com/molgenis/benchmark-gwas-prio/graphs/contributors
+[license-shield]: https://img.shields.io/github/license/molgenis/benchmark-gwas-prio.svg?style=for-the-badge
+[license-url]: https://github.com/molgenis/benchmark-gwas-prio/blob/master/LICENSE.md
