@@ -1,12 +1,13 @@
 # Benchmarking GWAS prioritization methods
-* * *
 
+
+* * *
 ## Description
+
+
 * * *
-
-
 ## Installation
-* * *
+
 This project requires both R and python dependencies.
 
 ### Python
@@ -55,23 +56,22 @@ install.packages('<PACKAGE>')
 
 > NOTE: all R dependencies are listed [here](#r-packages)
 
-
+* * *
 ## Getting started
+
+
+
 * * *
-
-
-
 ## Requirements
-* * *
 | Software                                     | Version  |
 | -------------------------------------------- | :------: |
 | [Python](https://www.python.org/)            | `3.9.7`  | 
 | [R](https://www.r-project.org/)              | `4.1.2`  |
 | [Bash](https://www.gnu.org/software/bash/)   | `5.1.4`  |
 
-
-## Python Packages
 * * *
+## Python Packages
+
 | Package                                              | Version  |
 | ---------------------------------------------------- | :------: |
 | [numpy](https://numpy.org/)                          | `1.21.2` |
@@ -87,16 +87,17 @@ install.packages('<PACKAGE>')
 | [yaml](https://pyyaml.org/)                          | `5.4.1`  |
 | [colorcet](https://colorcet.holoviz.org/)            | `2.0.6 ` |
 
-# R Packages
 * * *
+# R Packages
+
 | Package                                               | Version  |
 | ----------------------------------------------------- | :------: |
 | [biomaRt](http://www.biomart.org/)                    | `4.1.2`  |
 | [dplyr](https://dplyr.tidyverse.org/)                 | `4.1.2`  |
 
-
-## Authors
 * * *
+## Authors
+
 | Name                                                        | Role           | Institute             |
 | ------------------------------------------------------------| :------------: | :-------------------: |
 | [Raana Roohanitaziani](mailto:r.roohanitaziani@st.hanze.nl) | Project member | Hanze University DSLS |
@@ -104,12 +105,12 @@ install.packages('<PACKAGE>')
 | [Michael Cen Feng](mailto:m.cen.feng@st.hanze.nl)           | Project member | Hanze University DSLS |
 | [Stijn Arends](mailto:s.arends@st.hanze.nl)                 | Project member | Hanze University DSLS |
 
-
-## Acknowledgements
 * * *
+## Acknowledgements
 
 
 
+* * *
 ## License
-* * * 
+
 This project contains a MIT [license](./LICENSE.md)
