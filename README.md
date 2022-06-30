@@ -12,6 +12,17 @@
 * * *
 ## About this project
 
+Using genome wide association studies (GWAS) researchers have
+found tens of thousands of variants that contribute to disease.
+These variants are scattered throughout the genome and are
+sometimes found within genes but mostly outside genes. If a
+variant is found outside a gene the interpretation of this variant
+is challenging. Many computational methods have been
+developed that attempt to predict which genes are affected by a
+variant and which pathways are deregulated. 
+
+In this project we made an attempt at benchmarking these methods. 
+
 
 * * *
 ## Installation
@@ -68,9 +79,6 @@ pip
 
   > NOTE: all R dependencies are listed [here](#r-packages)
   </details>
-
-* * *
-## Getting started
 
 
 
