@@ -19,7 +19,7 @@ sometimes found within genes but mostly outside genes. If a
 variant is found outside a gene the interpretation of this variant
 is challenging. Many computational approaches, known as gene prioritization methods, have been
 developed that attempt to predict which genes are affected by a
-variant and which pathways are deregulated, 
+variant and which pathways are deregulated. 
 
 In this project we aimed to benchmark five well-known gene prioritisation methods. 
 
