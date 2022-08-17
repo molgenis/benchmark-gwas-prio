@@ -13,15 +13,15 @@
 ## About this project
 
 Using genome wide association studies (GWAS) researchers have
-found tens of thousands of variants that contribute to disease.
+found tens of thousands of variants that contribute to the diseases.
 These variants are scattered throughout the genome and are
 sometimes found within genes but mostly outside genes. If a
 variant is found outside a gene the interpretation of this variant
-is challenging. Many computational methods have been
+is challenging. Many computational approaches, known as gene prioritization methods, have been
 developed that attempt to predict which genes are affected by a
-variant and which pathways are deregulated. 
+variant and which pathways are deregulated, 
 
-In this project we made an attempt at benchmarking these methods. 
+In this project we aimed to benchmark five well-known gene prioritisation methods. 
 
 
 * * *
