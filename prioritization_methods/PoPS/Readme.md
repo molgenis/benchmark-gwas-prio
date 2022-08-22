@@ -6,7 +6,7 @@ PoPS is a gene prioritization method, a new method to identify the causal genes,
 The PoPS method is described in detail at: 
 
 Weeks, E. M. et al. Leveraging polygenic enrichments of gene features to predict genes underlying complex traits and diseases. medRxiv (2020).
-
+https://www.medrxiv.org/content/10.1101/2020.09.08.20190561v1
 
 
 ## An overview of how we applied PoPS for gene prioritization
