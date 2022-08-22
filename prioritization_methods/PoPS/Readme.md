@@ -13,6 +13,7 @@ Weeks, E. M. et al. Leveraging polygenic enrichments of gene features to predict
 * * *
 First, we applied MAGMA (ref) to compute gene-level z-scores from GWAS summary statistics with an LD reference panel. 
 to apply Magma we need to filter GWASs based on what MAGMA manual asked. refer to the notebook file.
+
 Next, we applied pops for marginal feature selection by using the output of MAGMA to perform enrichment analysis for each gene feature separately.
 to do this we need to download all the raw feature files (gene expression data, biological 
 pathways, and predicted PPI networks) from PoPS repository.  
