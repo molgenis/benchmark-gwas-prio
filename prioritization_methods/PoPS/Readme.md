@@ -19,7 +19,8 @@ https://www.medrxiv.org/content/10.1101/2020.09.08.20190561v1
  To compute z-scores scores we performed two steps of MAGMA: gene annotation, and gene analysis.  
 
 1) MAGMA: gene annotation step
-in this step the gene p-values will be computed based on the snp p-valuse.  For gene annotation I used two datasets: gene_loc.txt which I downloaded it from MAGMA website, and snp_loc.txt which is GWAS summary statistics dowanleded from GWAS catalogue. Both of these files needs to be pre-processed first based on what MAGMA manual asked. we only select the requested columns. The name of the columns and also the ordder of the columns should be based on the standards of MAGMA. These preprocessing has been performed in the notebook....
+
+in this step the gene p-values will be computed based on the snp p-valuse. To perform this step two datasets is needed: gene_loc.txt which I downloaded it from MAGMA website, and snp_loc.txt which is GWAS summary statistics dowanleded from GWAS catalogue. Both of these files needs to be pre-processed first based on what MAGMA manual asked. we only select the requested columns. The name of the columns and also the ordder of the columns should be based on the standards of MAGMA. These preprocessing has been performed in the notebook....
 
 2) MAGMA: gene analysis step
 in this step  z-scores were computed....
