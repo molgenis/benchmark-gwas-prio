@@ -29,19 +29,20 @@ to perform the gene analysis step I used the bim file (contain 3 files), and the
 
 ### Step 2: Munge features
 
-in this step using the script src/munge_feature_files.py (provided in PoPS repository) we processed the raw feature files (gene expression data, biological 
+In this step using the script src/munge_feature_files.py (provided in PoPS repository) we processed the raw feature files (gene expression data, biological 
 pathways, and predicted PPI networks) into a more efficient format for downstream usage. 
 
-to do this we need to download the raw feature files from PoPS repository. The downloaded files needs to be also preprocessed before running the method, for example  
+To do this we need to download the raw feature files from PoPS repository. The downloaded files needs to be also preprocessed before running the method, for example  
 The column names must be unique accross all feature files and we prefixed every column with the filename. 
 
 We applied the methods also in different ways:
 
-1) we used the features of one tissue (the most related tissue to the disease) for gene prioritisation. For example the raw features of human bone marrow for height trait. 
+1) we used the features of one tissue (the most related tissue to the disease) for gene prioritisation. For example the raw features of human bone marrow for height      trait. 
 2) we cobmbined the features of two tissues.  
-3) and finally we  coombined the features of all the tissues and we used the same large set of features for gene priorisitation of all the traits.  
+3) and finally we coombined the features of all the tissues and we used the same large set of features for gene priorisitation of all the traits.  
  
  ### Step 3: Run PoPS
+ 
 Next, PoPS performed marginal feature selection by using the output of MAGMA to perform enrichment analysis for each gene feature separately. 
 To nominate causal genes, PoPS then assigned a priority score to every protein coding gene according to these enrichments. 
 
