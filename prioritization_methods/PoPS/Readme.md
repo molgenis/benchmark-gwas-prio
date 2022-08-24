@@ -37,9 +37,10 @@ The column names must be unique accross all feature files and we prefixed every 
 
 We applied the methods also in different ways:
 
-1) we used the features of one tissue (the most related tissue to the disease) for gene prioritisation. For example the raw features of human bone marrow for height      trait. 
-2) we cobmbined the features of two tissues.  
-3) and finally we coombined the features of all the tissues and we used the same large set of features for gene priorisitation of all the traits.  
+1) we used the features of the most related tissue to the disease for gene prioritisation, eg. the raw features of human bone marrow for height trait, colon for Inflamatory bowel disease trait and prostate for prostate cancer. 
+
+2) we cobmbined the features of two tissues and used for gene prioritisation.   
+3) we coombined the features of all the tissues and we used the same large set of features for gene priorisitation of all thhree traits.  
  
  ### Step 3: Run PoPS
  
