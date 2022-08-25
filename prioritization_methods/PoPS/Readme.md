@@ -20,7 +20,7 @@ First, we applied MAGMA to compute gene-level z-scores from GWAS summary statist
 
 1. MAGMA: gene annotation step
 
-in this step the gene p-values will be computed based on the snp p-valuse. To perform this step two datasets is needed: ``` gene_loc.txt ``` which I downloaded it from MAGMA website, and ``` snp_loc.txt ``` which is GWAS summary statistics dowanleded from GWAS catalogue. Both of these files needs to be pre-processed first based on what MAGMA manual asked. These preprocessing has been performed in the notebook [MAGMA_Preproceccing](https://github.com/molgenis/benchmark-gwas-prio/tree/main/prioritization_methods/MAGMA)
+in this step the gene p-values will be computed based on the snp p-valuse. To perform this step two datasets is needed: ``` gene_loc.txt ``` which I downloaded it from MAGMA website, and ``` snp_loc.txt ``` which is GWAS summary statistics dowanleded from GWAS catalogue. Both of these files needs to be pre-processed first based on what MAGMA manual asked. These preprocessing has been performed in the notebook [```MAGMA_Preproceccing```](https://github.com/molgenis/benchmark-gwas-prio/tree/main/prioritization_methods/MAGMA)
 
 
 2. MAGMA: gene analysis step
@@ -38,11 +38,11 @@ The downloaded files needs to be also preprocessed before running the method. Fo
 
 **We applied the method also in different ways**: 
 
-1. we used the features of only one tisseu, the most related tissue to the disease, for gene prioritisation, eg. the raw features of human bone marrow for height trait, colon for Inflamatory bowel disease trait and prostate for prostate cancer. [hbm_raw_features](https://github.com/molgenis/benchmark-gwas-prio/blob/main/prioritization_methods/PoPS/hbn_raw_features.ipynb), [PrC_raw_features](https://github.com/molgenis/benchmark-gwas-prio/blob/main/prioritization_methods/PoPS/PrC_raw_features.ipynb), [IBD_raw_features](https://github.com/molgenis/benchmark-gwas-prio/blob/main/prioritization_methods/PoPS/IBD_raw_features.ipynb).
+1. we used the features of only one tisseu, the most related tissue to the disease, for gene prioritisation, eg. the raw features of human bone marrow for height trait, colon for Inflamatory bowel disease trait and prostate for prostate cancer. [```hbm_raw_features```](https://github.com/molgenis/benchmark-gwas-prio/blob/main/prioritization_methods/PoPS/hbn_raw_features.ipynb), [```PrC_raw_features```](https://github.com/molgenis/benchmark-gwas-prio/blob/main/prioritization_methods/PoPS/PrC_raw_features.ipynb), [```IBD_raw_features```](https://github.com/molgenis/benchmark-gwas-prio/blob/main/prioritization_methods/PoPS/IBD_raw_features.ipynb).
 
 
-2. we cobmbined the features of two tissues and used for gene prioritisation. [combine_hbm_colon_rawfeatures](https://github.com/molgenis/benchmark-gwas-prio/blob/main/prioritization_methods/PoPS/Combine%20hbm_colon_rawfeatures.py).  
-3. we coombined the features of all the tissues and we used the same large set of features for gene priorisitation of all thhree traits. [download_allfeatures.sh](https://github.com/molgenis/benchmark-gwas-prio/blob/main/prioritization_methods/PoPS/download_features.sh), [combine_hbm_colon_rawfeatures](https://github.com/molgenis/benchmark-gwas-prio/blob/main/prioritization_methods/PoPS/rename_file_contents.py) 
+2. we cobmbined the features of two tissues and used for gene prioritisation. [```combine_hbm_colon_rawfeatures```](https://github.com/molgenis/benchmark-gwas-prio/blob/main/prioritization_methods/PoPS/Combine%20hbm_colon_rawfeatures.py).  
+3. we coombined the features of all the tissues and we used the same large set of features for gene priorisitation of all thhree traits. [```download_allfeatures.sh```](https://github.com/molgenis/benchmark-gwas-prio/blob/main/prioritization_methods/PoPS/download_features.sh), [```combine_hbm_colon_rawfeatures```](https://github.com/molgenis/benchmark-gwas-prio/blob/main/prioritization_methods/PoPS/rename_file_contents.py) 
  
 ## Step 3: Run PoPS
  
