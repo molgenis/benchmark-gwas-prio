@@ -1,0 +1,7 @@
+traits:
+  Height: "C:\\Users\\stijn\\Documents\\Master_DSLS\\Semester_two\\project\\comparing_methods\\downstreamer\\height_2018_30124842_hg19_enrichtments.xlsx"
+  IBD: "C:\\Users\\stijn\\Documents\\Master_DSLS\\Semester_two\\project\\comparing_methods\\downstreamer\\inflammatory_bowel_disease_2017_29906448_hg19_enrichtments.xlsx"
+  PrC: "C:\\Users\\stijn\\Documents\\Master_DSLS\\Semester_two\\project\\comparing_methods\\downstreamer\\prostate_cancer_2018_29892016_hg19_enrichtments.xlsx"
+
+hpo_data: "C:\\Users\\stijn\\Documents\\Master_DSLS\\Semester_two\\project\\HPO\\phenotype_to_genes_V1268_OMIMandORPHA.txt_matrix.txt.gz"
+hpo_info: "C:\\Users\\stijn\\Documents\\Master_DSLS\\Semester_two\\project\\comparing_methods\\HPO_table.csv"
