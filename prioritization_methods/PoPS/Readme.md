@@ -42,7 +42,7 @@ The downloaded files needs to be also preprocessed before running the method. Fo
 
 
 2. we cobmbined the features of two tissues and used for gene prioritisation. [```combine_hbm_colon_rawfeatures```](https://github.com/molgenis/benchmark-gwas-prio/blob/main/prioritization_methods/PoPS/Combine%20hbm_colon_rawfeatures.py).  
-3. we coombined the features of all the tissues and we used the same large set of features for gene priorisitation of all thhree traits. [```download_allfeatures.sh```](https://github.com/molgenis/benchmark-gwas-prio/blob/main/prioritization_methods/PoPS/download_features.sh), [```combine_hbm_colon_rawfeatures```](https://github.com/molgenis/benchmark-gwas-prio/blob/main/prioritization_methods/PoPS/rename_file_contents.py) 
+3. we coombined the features of all the tissues and we used the same large set of features for gene priorisitation of all thhree traits. [```download_allfeatures.sh```](https://github.com/molgenis/benchmark-gwas-prio/blob/main/prioritization_methods/PoPS/download_features.sh), [```rename.file_contents```](https://github.com/molgenis/benchmark-gwas-prio/blob/main/prioritization_methods/PoPS/rename_file_contents.py) 
  
 ## Step 3: Run PoPS
  
