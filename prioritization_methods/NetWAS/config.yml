@@ -1,0 +1,6 @@
+default:
+  traits:
+    height: "C:\\Users\\stijn\\Documents\\Master_DSLS\\Semester_two\\project\\software_methods\\NetWas\\results\\height\\full_result_height_netwas.txt"
+    PrC: "C:\\Users\\stijn\\Documents\\Master_DSLS\\Semester_two\\project\\software_methods\\NetWas\\results\\prostate\\filtered_netwas_prostate_prostate_gland.txt"
+    IBD: "C:\\Users\\stijn\\Documents\\Master_DSLS\\Semester_two\\project\\software_methods\\NetWas\\results\\IBD\\filtered_netwas_IBD_intestine.txt"
+  output_folder: "C:\\Users\\stijn\\Documents\\Master_DSLS\\Semester_two\\improved_project\\benchmark-gwas-prio\\prioritization_methods\\NetWAS\\" # "C:\\Users\\stijn\\Documents\\Master_DSLS\\Semester_two\\project\\software_methods\\NetWas\\results\\"
