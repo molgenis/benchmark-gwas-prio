@@ -1,0 +1,12 @@
+traits:
+  Height: 
+    file: "C:\\Users\\stijn\\Documents\\Master_DSLS\\Semester_two\\project\\software_methods\\NetWas\\results\\height\\height_netwas_ensembl.csv"
+    hpo_term: 'HP:0000002'
+  IBD: 
+    file: "C:\\Users\\stijn\\Documents\\Master_DSLS\\Semester_two\\project\\software_methods\\NetWas\\results\\IBD\\ibd_netwas_ensembl.csv"
+    hpo_term: 'HP:0012649'
+  PrC: 
+    file: "C:\\Users\\stijn\\Documents\\Master_DSLS\\Semester_two\\project\\software_methods\\NetWas\\results\\prostate\\prostate_netwas_ensembl.csv"
+    hpo_term: 'HP:0002664'
+
+hpo_data: "C:\\Users\\stijn\\Documents\\Master_DSLS\\Semester_two\\project\\HPO\\phenotype_to_genes_V1268_OMIMandORPHA.txt_matrix.txt.gz"
