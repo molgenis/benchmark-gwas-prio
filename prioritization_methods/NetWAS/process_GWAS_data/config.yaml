@@ -1,0 +1,12 @@
+traits:
+  PrC:
+    file: "C:\\Users\\stijn\\Documents\\Master_DSLS\\Semester_two\\project\\data\\prostate_cancer\\meta_v3_onco_euro_overall_ChrAll_1_release_full.txt"
+    columns: {snp: "SNP", pval: "Pvalue"}
+  IBD: 
+    file: "C:\\Users\\stijn\\Documents\\Master_DSLS\\Semester_two\\project\\data\\inflammatory_bowel_disease\\inflammatory_bowel_disease_sumsstats.h.tsv"
+    columns: {snp: None, pval: None}
+  height:
+    file: "C:\\Users\\stijn\\Documents\\Master_DSLS\\Semester_two\\project\\data\\height\\Meta-analysis_Wood_et_al+UKBiobank_2018.txt"
+    columns: {snp: SNP, pval: P}
+
+output: "C:\\Users\\stijn\\Documents\\Master_DSLS\\Semester_two\\improved_project\\benchmark-gwas-prio\\prioritization_methods\\NetWAS\\process_GWAS_data\\"
