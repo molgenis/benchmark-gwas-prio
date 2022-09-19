@@ -5,6 +5,8 @@ Perform fisher's exact tests on the results from a number of prioritization meth
 import sys
 import os
 from pathlib import Path
+from typing import Tuple
+import numpy as np
 import yaml
 from matplotlib_venn import venn2, venn2_circles
 import matplotlib.pyplot as plt
@@ -62,6 +64,7 @@ class VennDiagram:
         """
         self.__plot_venn_diagram()
         plt.savefig(output_file)
+        plt.clf()
 
 
 def get_config(file: Path) -> dict:
@@ -108,7 +111,7 @@ def make_out_dir(path: Path) -> None:
         print(f"[{make_out_dir.__name__}] {path} already exists.")
 
 
-def save_fisher_results(file, fisher_table, odds_ratio, pval) -> None:
+def save_fisher_results(file, fisher_table, odds_ratio, pval, precision, recall) -> None:
     """
     Save the results of a fisher's exact test to a txt file.
 
@@ -126,11 +129,13 @@ def save_fisher_results(file, fisher_table, odds_ratio, pval) -> None:
     with open(file, 'w', encoding="utf-8") as file_handler:
         file_handler.write("2x2 contingency table:\n")
         file_handler.write(fisher_table)
-        file_handler.write("\\nnFisher's exact test results:\n")
+        file_handler.write(f"\nprecision: {precision}, recall: {recall}\n")
+        file_handler.write("\nFisher's exact test results:")
         file_handler.write(f"odds ratio: {odds_ratio}, pvalue: {pval}\n")
 
 
-def print_fisher_results(fisher_table, odds_ratio, pval) -> None:
+
+def print_fisher_results(fisher_table, odds_ratio, pval, precision, recall) -> None:
     """
     Print the results of a fisher's exact test to the screen
 
@@ -145,8 +150,36 @@ def print_fisher_results(fisher_table, odds_ratio, pval) -> None:
     """
     print("2x2 contingency table:\n")
     print(fisher_table)
-    print("\n\nFisher's exact test results:\n")
+    print(f"\nprecision: {precision}, recall: {recall}\n")
+    print("\nFisher's exact test results:")
     print(f"odds ratio: {odds_ratio}, pvalue: {pval}\n")
+
+
+
+def calculate_recall_precision(true_positives, false_positives, false_negatives) -> Tuple[float, float]:
+    """
+    Calculate the recall and precision.
+
+    :parameters
+    -----------
+    true_positives - int
+        Number of true positives (i.e. number of prioritized genes that are inside the HPO term gene list)
+    false_positives - int
+        Number of false positives (i.e. number of prioritized gene that are not inside the HPO term gene list )
+    false_negatives - int
+        Number of false negatives (i.e. number of genes that were not prioritized that are inside the HPO term gene list)
+
+    :returns
+    --------
+    precision - float
+        the precision (i.e. the proportion of prioritized genes in the gold standard set.)
+    recall - float
+        the recall (i.e. the proportion of genes in the gold standard set that were prioritized)
+    """
+    precision = np.round(true_positives / (true_positives + false_positives), 4)
+    recall = np.round(true_positives / (true_positives + false_negatives), 4)
+
+    return precision, recall
 
 
 def main():
@@ -196,22 +229,29 @@ def main():
         _, genes_hpo_term = hpo.get_data_hpo_term(hpo.hpo_data, hpo_term)
 
         fisher_data = fisher.create_fisher_table(overlap_genes, sig_genes, genes_hpo_term)
+
+        true_positives, false_positives, false_negatives = fisher_data.iloc[1, 1], fisher_data.iloc[1, 0], fisher_data.iloc[0, 1]
+
         fisher_table = fisher_data.to_string()
 
         odds_ratio, pval = fisher.fishers_exact_test(fisher_data.iloc[0:2, 0:2].values)
 
+        precision, recall = calculate_recall_precision(true_positives, false_positives, false_negatives)
+
+        # Create venn diagram
         n_significant_genes = len(sig_genes)
         n_hpo_term_genes = len(genes_hpo_term)
         overlap_sig_hpo = fisher_data.iloc[1, 1]
         venn_diagram = VennDiagram(n_significant_genes, n_hpo_term_genes, overlap_sig_hpo)
 
+        # Save results
         if mode == "save":
             venn_diagram.save(Path(output_dir) / (trait + "_venn.png"))
             save_fisher_results(Path(output_dir) / (trait + "_fisher_results.txt"),
-             fisher_table, odds_ratio, pval)
-        else:
+             fisher_table, odds_ratio, pval, precision, recall)
+        else: # Plot results
             venn_diagram.show()
-            print_fisher_results(fisher_table, odds_ratio, pval)
+            print_fisher_results(fisher_table, odds_ratio, pval, precision, recall)
 
 
 if __name__ == "__main__":
