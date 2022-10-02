@@ -1,0 +1,8 @@
+plink: 
+  IBD: "C:/Users/Pin/Desktop/Execute_methods/editsnpfiles/28067908-GCST004131-EFO_0003767.h.tsv.gz"
+  PC: "C:/Users/Pin/Desktop/Execute_methods/editsnpfiles/29892016-GCST006085-EFO_0001663.h.tsv.gz"
+
+DEPICT: 
+  IBD: "IBD_5e6_1000kb_r2_01.clumped"
+  PrC: "PC_5e6_1000kb_r2_01.clumped"
+  Height: "Height_5e8_1000kb_r2_01.clumped"
