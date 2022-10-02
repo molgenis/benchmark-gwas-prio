@@ -58,6 +58,6 @@ hpo_data: "path/to/HPO_data.txt.gz"
 
 ## Example Images
 
-![barchart](../../images/results/example_bar_chart_height.png)
+![recall_precision](../../images/results/example_recall_precision_plot.png)
 
-![fisher](../../images/results/example_fisher_tests_height.png)
+![fisher](../../images/results/example_fishers_test_hpo_terms.png)

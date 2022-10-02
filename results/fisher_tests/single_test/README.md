@@ -1,7 +1,7 @@
 ## Description 
 * * *
 
-The scripts located in this directory can be used to perform a fisher's exact test on the results of a gene prioritization method to find out if the prioritized genes are enriched for genes that are associated with a relevant HPO term. Additionaly, venn diagrams displaying the overlap between genes for the specified HPO term and prioritized genes produced by the gene prioritization method will be produced([example](#venn-diagram)).
+The scripts located in this directory can be used to perform a fisher's exact test on the results of a gene prioritization method to find out if the prioritized genes are enriched for genes that are associated with a relevant HPO term and to calculate the recall and precision. Additionaly, venn diagrams displaying the overlap between genes for the specified HPO term and prioritized genes produced by the gene prioritization method will be produced([example](#venn-diagram)).
 
 
 ## Getting Started
