@@ -25,6 +25,10 @@ In this project we aimed to benchmark five well-known gene prioritisation method
 
 
 * * *
+## Getting Started
+This project contains code for processing the GWAS summaray statics files, and other files that are specific to a certain gene prioritization method. These scripts can be found inside the [prioritization_methods/](prioritization_methods/) folder. This folder again contains a subdirectory for each gene prioritization method that was used. Each subdirectory contains a README file that will explain the contents of that directory and how to use it. Moreover, this project contains code to perform the analysis and produce the results that were used in the article. This can be found in the [results/](results/) folder. This folder contains a subdirectory called [fisher_tests/](results/fisher_tests/) that contains scripts to perform the analysis. The [visualize/](results/visualize/) subdirectory contains the code to produce the figures used in the article. Both the subdirectories have their own README files that explain the contents further. 
+
+* * *
 ## Installation
 
 This project requires both R and python dependencies.
