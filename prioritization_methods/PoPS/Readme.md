@@ -53,7 +53,7 @@ To nominate causal genes, PoPS then assigned a priority score to every protein c
 
 ## Data analysis & Visualisations
 * * *
-In the notebook [```PoPS_analysis&visualisation```](https://github.com/molgenis/benchmark-gwas-prio/blob/main/prioritization_methods/PoPS/PoPS_analysis%26visualisations.ipynb) you can find the benmarcking of PoPS using HPO terms for three traits, the result of Fishers' exact test, and calculation of precision and recall. 
+In the notebook [```PoPS_analysis&visualisations```](https://github.com/molgenis/benchmark-gwas-prio/blob/main/prioritization_methods/PoPS/PoPS_analysis%26visualisations.ipynb) you can find the benmarcking of PoPS using HPO terms for three traits, the result of Fishers' exact test, and calculation of precision and recall. 
 
 
 
