@@ -1,3 +1,5 @@
+<div id="top"></div>
+
 [![Contributors][contributors-shield]][contributors-url]
 [![MIT License][license-shield]][license-url]
 
@@ -145,6 +147,8 @@ The authors would like to thank Dr. Patrick Deelen for supervising this project.
 ## License
 
 This project contains a MIT [license](./LICENSE.md)
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
