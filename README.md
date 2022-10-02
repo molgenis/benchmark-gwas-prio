@@ -91,7 +91,9 @@ pip
 | [Bash](https://www.gnu.org/software/bash/)   | `5.1.4`  |
 
 * * *
-## Python Packages
+## Packages
+<details>
+  <summary>Python packages</summary>
 
 | Package                                              | Version  |
 | ---------------------------------------------------- | :------: |
@@ -108,13 +110,17 @@ pip
 | [yaml](https://pyyaml.org/)                          | `5.4.1`  |
 | [colorcet](https://colorcet.holoviz.org/)            | `2.0.6 ` |
 
-* * *
-# R Packages
+</details>
+
+<details>
+  <summary>R packages</summary>
 
 | Package                                               | Version  |
 | ----------------------------------------------------- | :------: |
 | [biomaRt](http://www.biomart.org/)                    | `4.1.2`  |
 | [dplyr](https://dplyr.tidyverse.org/)                 | `4.1.2`  |
+
+</details>
 
 * * *
 ## Authors
@@ -129,7 +135,7 @@ pip
 * * *
 ## Acknowledgements
 
-
+The authors would like to thank Dr. Patrick Deelen for supervising this project. 
 
 * * *
 ## License
