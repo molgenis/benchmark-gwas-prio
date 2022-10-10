@@ -5,7 +5,7 @@
 
 <div align="center">
 <h2 align="center">Benchmarking GWAS prioritization methods</h3>
-  <a href="https://github.com/othneildrew/Best-README-Template">
+  <a href="https://www.molgenis.org/">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 </div>
